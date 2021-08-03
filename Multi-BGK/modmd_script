@@ -1,8 +1,8 @@
 # INPUT FILE FOR MULTI BGK
 #
-# This computes an ablator-fuel interface problem
-# for a CHO ablator
-# and a DT fuel
+# This computes the ICF plastic pusher fuel case
+# # for a CHO ablator
+# and fuel DT
 #
 
 #----------------------------------------------------------
@@ -17,7 +17,7 @@ nspec
 5
 # Carbon
 # Hydrogen
-# Oxygen
+#Oxygen
 # Deuterium
 # Tritium
 #----------------------------------------------------------
@@ -25,11 +25,11 @@ nspec
 mass
 1.9926e-23
 1.6605e-24
-2.6560e-23
+2.6566e-23
 3.3210e-24
 5.0083e-24
 #----------------------------------------------------------
-# Species base ionizations 
+# Species base ionizations - note that these are fixed from initial
 Z
 6.0
 1.0
@@ -41,6 +41,7 @@ Z
 #PHYSICAL SPACE INFO
 #
 #----------------------------------------------------------
+
 # 0D or 1D
 dims
 1
@@ -51,7 +52,7 @@ Nx
 #----------------------------------------------------------
 # Size of physical domain for 1D (cm)
 Lx
-100e-4
+2e-4
 #----------------------------------------------------------
 #
 #INITIAL CONDITION INFO
@@ -63,13 +64,13 @@ NumIntervals
 Interval
 1
 x
--50e-4
+-1e-4
 n_i
-5e+22
-6e+22
-6e+20
-0.0
-0.0
+4.663e22
+6.305e22
+5.51e20
+0
+0
 v_i
 0.0
 0.0
@@ -77,21 +78,21 @@ v_i
 0.0
 0.0
 T_i
-100
-100
-100
-0.0
-0.0
+10
+10
+10
+0
+0
 Interval
 2
 x
 0
 n_i
-0.0
-0.0
-0.0
-3.e+22
-3.e+22
+0
+0
+0
+2.994e22
+2.994e22
 v_i
 0.0
 0.0
@@ -102,22 +103,26 @@ T_i
 0.0
 0.0
 0.0
-100.0
-100.0
+10.0
+10.0
 End_init
+
 #----------------------------------------------------------
+#
 #    ELECTRIC FIELD INFO
+#
 #----------------------------------------------------------
 #----------------------------------------------------------
 # Electron Temperatures
 Te_start
-100
+10
 Te_end
-100
+10
 #----------------------------------------------------------
 # Poisson solve
 poiss
-11
+22
+
 #----------------------------------------------------------
 #
 #    VELOCITY SPACE INFO
@@ -131,7 +136,7 @@ discret
 #----------------------------------------------------------
 # Number of nodes in each direction in velocity space
 Nv
-12
+40
 #----------------------------------------------------------
 # Width of velocity domains, in thermal speeds
 v_width
@@ -148,11 +153,11 @@ Imp_exp
 0
 # Timestep (s)
 Time_step
-1e-15
+1e-14
 #----------------------------------------------------------
 # Number of steps
 Final_time
-10e-12
+2e-12
 #----------------------------------------------------------
 # Spatial/temporal order of accuracy
 Space_order
@@ -190,3 +195,4 @@ Ion_coll_flavor
 Data_writing_frequency
 100
 Stop
+
